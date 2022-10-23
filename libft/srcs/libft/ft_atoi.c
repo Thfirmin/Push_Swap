@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:37:31 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/06/08 08:08:09 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/23 01:13:02 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 //convert ASCII string to integer
 
-int	ft_atoi(const char *str)
+ssize_t	ft_atoi(const char *str)
 {
-	int	atoinum;
-	int	signal;
+	ssize_t	atoinum;
+	short int	signal;
 
 	signal = 1;
 	atoinum = 0;

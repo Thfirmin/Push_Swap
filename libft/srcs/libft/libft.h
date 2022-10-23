@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:21:04 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/06 13:27:31 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/23 01:19:48 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_isprint(int c);
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-int		ft_atoi(const char *str);
+ssize_t	ft_atoi(const char *str);
 char	*ft_itoa(int n);
 
 size_t	ft_strlen(const char *str);
