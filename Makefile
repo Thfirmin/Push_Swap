@@ -6,7 +6,7 @@
 #    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/10/22 00:50:32 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/10/23 00:51:20 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ STACK_SRCS	= ps_stknew.c      \
 			  ps_stkdelone.c   \
 			  ps_stkadd_back.c \
 
-MAIN_SRCS	= push_swap.c \
-			  push_swap_utils.c
+MAIN_SRCS	= push_swap.c       \
+			  push_swap_utils.c \
+			  push_swap_valid.c
 
 SRCS		= $(addprefix $(STACK_PATH),$(STACK_SRCS)) \
 			  $(MAIN_SRCS)
@@ -75,6 +76,9 @@ FULLER		= \e[7m
 # +>                                     RULES
 
 all:		$(LIBFT) $(NAME)
+
+$(LIBFT):
+	$(MAKE) $(LIBFT_PATH)
 
 $(NAME):	$(OBJS) $(LIBFT)
 
