@@ -1,47 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rotate.c                                        :+:      :+:    :+:   */
+/*   ps_rrotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 14:53:21 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/25 21:22:35 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/10/25 17:34:34 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/10/25 21:33:53 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 #include "libft.h"
 
-static void	rx(t_stack **stkx)
+static void	rrx(t_stack **stkx)
 {
 	t_stack	*elem;
+	t_stack	*lst;
 
 	elem = *stkx;
 	if (!elem)
 		return ;
 	else if (!elem->next)
 		return ;
-	*stkx = elem->next;
+	lst = ps_stklast(*stkx);
+	while (elem->next != lst)
+		elem = elem->next;
 	elem->next = 0;
-	ps_stkadd_back(stkx, elem);
+	ps_stkadd_front(stkx, lst);
 }
 
-void	ra(t_stack **stka)
+void	rra(t_stack **stka)
 {
-	rx(stka);
-	ft_putstr_fd("ra\n", 1);
+	rrx(stka);
+	ft_putstr_fd("rra\n", 1);
 }
 
-void	rb(t_stack **stkb)
+void	rrb(t_stack **stkb)
 {
-	rx(stkb);
-	ft_putstr_fd("rb\n", 1);
+	rrx(stkb);
+	ft_putstr_fd("rrb\n", 1);
 }
 
-void	rr(t_stack **stka, t_stack **stkb)
+void	rrr(t_stack **stka, t_stack **stkb)
 {
-	rx(stka);
-	rx(stkb);
-	ft_putstr_fd("rr\n", 1);
+	rrx(stka);
+	rrx(stkb);
+	ft_putstr_fd("rrr\n", 1);
 }

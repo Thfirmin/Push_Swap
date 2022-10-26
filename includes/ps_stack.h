@@ -1,14 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
+	/* ************************************************************************** */
+	/*                                                                            */
+	/*                                                        :::      ::::::::   */
 /*   ps_stack.h                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 22:44:35 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/21 23:41:39 by thfirmin         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+	/*                                                    +:+ +:+         +:+     */
+	/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
+	/*                                                +#+#+#+#+#+   +#+           */
+	/*   Created: 2022/10/21 22:44:35 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/10/25 15:34:49 by thfirmin         ###   ########.fr       */
+	/*                                                                            */
+	/* ************************************************************************** */
 
 #ifndef PS_STACK_H
 # define PS_STACK_H
@@ -31,4 +31,6 @@ t_stack	*ps_stklast(t_stack *stack);
 void	ps_stkdelone(t_stack *elem);
 void	ps_stkclear(t_stack **stack);
 void	ps_stkadd_back(t_stack **stack, t_stack *elem);
+void	ps_stkadd_front(t_stack **stack, t_stack *elem);
+
 #endif

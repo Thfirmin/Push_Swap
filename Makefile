@@ -6,7 +6,7 @@
 #    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/10/23 00:51:20 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/10/25 22:12:38 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,28 @@ LIBFT		= $(LIBFT_PATH)$(LIBFT_SRC)
 
 LIBFT_SRC	= libft.a
 
+SORT_SRCS	= ps_sort.c \
+			  ps_sort_utils.c
+
+RULES_SRCS	= ps_swap.c \
+			  ps_push.c \
+			  ps_rotate.c \
+			  ps_rrotate.c
+
 STACK_SRCS	= ps_stknew.c      \
 			  ps_stklast.c     \
 			  ps_stkclear.c    \
 			  ps_stkdelone.c   \
 			  ps_stkadd_back.c \
+			  ps_stkadd_front.c
 
 MAIN_SRCS	= push_swap.c       \
 			  push_swap_utils.c \
 			  push_swap_valid.c
 
 SRCS		= $(addprefix $(STACK_PATH),$(STACK_SRCS)) \
+			  $(addprefix $(SORT_PATH),$(SORT_SRCS)) \
+			  $(addprefix $(RULES_PATH),$(RULES_SRCS)) \
 			  $(MAIN_SRCS)
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                 OBJECT FILES
@@ -39,6 +50,8 @@ OBJS		= $(subst .c,.o,$(SRCS))
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                    ALIASES
 
+SORT_PATH	= sorting/
+RULES_PATH	= rules/
 STACK_PATH	= stack/
 LIBFT_PATH	= libft/
 

@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:55:30 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/23 11:11:22 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:39:13 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,22 @@
 # include "libft.h"
 # include "ps_stack.h"
 
+// Push
+void	pa(t_stack **stkb, t_stack **stka);
+void	pb(t_stack **stka, t_stack **stkb);
+
 // Swap
 void	sa(t_stack **stka);
 void	sb(t_stack **stkb);
-void	sa(t_stack **stka, );
-// Push
+void	ss(t_stack **stka, t_stack **stkb);
+
 // Rotate
+void	ra(t_stack **stka);
+void	rb(t_stack **stkb);
+void	rr(t_stack **stka, t_stack **stkb);
+
 // Reverse Rotate
+void	rra(t_stack **stka);
+void	rrb(t_stack **stkb);
+void	rrr(t_stack **stka, t_stack **stkb);
 #endif

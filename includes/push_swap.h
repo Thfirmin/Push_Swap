@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:53 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/23 10:47:21 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/25 22:12:19 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int	ps_isvalid(t_stack *stack, char *nbr);
 int	ps_isalldigit(char *nbr);
 int	ps_isint(char *nbr);
 int	ps_isunique(t_stack *stack, char *nbr);
+
+// Sorting
+void	push_swap(t_stack **stka, t_stack **stkb);
+int		ps_issorted(t_stack *stack);
 
 #endif
