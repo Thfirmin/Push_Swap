@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "libft/libft.h"
 
 int	main(int argc, const char **argv, const char **envp)
 {
@@ -10,16 +11,15 @@ int	main(int argc, const char **argv, const char **envp)
 
 	for (int i = 0; envp[i]; i++)
 	{
-		if (!strncmp(envp[i], "PATH=", 5))
-		{
-			envlen = strlen(envp[i]);
-			env = malloc(envlen + 1);
-			strlcpy(env, envp[i], (envlen + 1));
-		}
+		if (!ft_strncmp(envp[i], "PATH=", 5))
+			env = ft_strdup(envp[i]);
 	}
-	paths = split(env, ':');
+	paths = ft_split(env, ':');
 	for (int i = 0; paths[i]; i ++)
 		printf ("%s\n", paths[i]);
+	for (int i = 0; paths[i]; i++)
+		free (paths[i]);
+	free (paths);
 	free (env);
 	return (0);
 }
