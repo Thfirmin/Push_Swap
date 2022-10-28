@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:00:18 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/25 22:13:23 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:48:05 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ void	push_swap(t_stack **stka, t_stack **stkb)
 {
 	if (ps_issorted(*stka))
 		return ;
-	(void) stkb;
-	ft_printf ("Trabalha!!!!\n");
+	(void)stkb;
+	/*while (!ps_ispsorted(stka))
+	{
+		if (ps_issorted)
+		{
+			return ;
+		}
+	}
+	if (stkb)
+	{
+		return;
+	}*/
+	return ;
 }

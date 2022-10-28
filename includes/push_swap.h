@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:53 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/25 22:12:19 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:41:08 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ void	ps_error(t_stack **hstack, t_stack *stack);
 void	ps_split_clear(char **split);
 int		ps_fill_arg(t_stack **stack, char **varg);
 void	ps_clear(t_stack **hstack, t_stack *stack);
+void	ps_plusone(int *nbr);
 
 // Valid
 int	ps_isvalid(t_stack *stack, char *nbr);
 int	ps_isalldigit(char *nbr);
 int	ps_isint(char *nbr);
 int	ps_isunique(t_stack *stack, char *nbr);
+int	ps_islesser(t_stack *stack, char *nbr);
 
 // Sorting
 void	push_swap(t_stack **stka, t_stack **stkb);

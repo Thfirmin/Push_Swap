@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 00:41:14 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/23 10:08:27 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:38:28 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,28 @@ int	ps_isint(char *nbr)
 
 int	ps_isunique(t_stack *stack, char *nbr)
 {
+	int	num;
+
+	num = ft_atoi(nbr);
 	if (!stack)
 		return (1);
 	while (stack)
 	{
-		if (stack->nbr == ft_atoi(nbr))
+		if (stack->nbr == num)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+int	ps_islesser(t_stack *stack, char *nbr)
+{
+	int	num;
+
+	num = ft_atoi(nbr);
+	while (stack)
+	{
+		if (num >= stack->nbr)
 			return (0);
 		stack = stack->next;
 	}

@@ -6,7 +6,7 @@
 #    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/10/25 22:12:38 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/10/28 13:44:46 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ STACK_SRCS	= ps_stknew.c      \
 			  ps_stkclear.c    \
 			  ps_stkdelone.c   \
 			  ps_stkadd_back.c \
+			  ps_stkiter.c     \
 			  ps_stkadd_front.c
 
 MAIN_SRCS	= push_swap.c       \

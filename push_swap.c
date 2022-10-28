@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:11 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/25 22:05:01 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:34:00 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ps_rules.h"
 #include "libft.h"
 
-//static void	check_stack(t_stack *stka, t_stack *stkb);
+static void	check_stack(t_stack *stka, t_stack *stkb);
 
 int	main(int argc, char *argv[])
 {
@@ -29,7 +29,8 @@ int	main(int argc, char *argv[])
 	if (len < 0)
 		ps_error(stack, stack[A]);
 	// Sorting Stack;
-	push_swap(&stack[A], &stack[B]);
+	check_stack(stack[A], stack[B]);
+	//push_swap(&stack[A], &stack[B]);
 	//Clear Stack;
 	ps_clear(stack, stack[A]);
 	return (0);
@@ -65,17 +66,17 @@ int	ps_fill_stack(t_stack **stack, int argc, char *argv[])
 	return (i);
 }
 
-/*static void	check_stack(t_stack *stka, t_stack *stkb)
+static void	check_stack(t_stack *stka, t_stack *stkb)
 {
 	ft_printf ("------------------------\n");
 	for (int i = 1; stka || stkb; i ++)
 	{
 		if (stka)
-			ft_printf ("%d\t", stka->nbr);
+			ft_printf ("%d (%d)\t", stka->nbr, stka->idx);
 		else
 			ft_printf ("  \t");
 		if (stkb)
-			ft_printf ("%d\n", stkb->nbr);
+			ft_printf ("%d (%d)\n", stkb->nbr, stkb->idx);
 		else
 			ft_printf ("\n");
 		if (stka)
@@ -86,4 +87,4 @@ int	ps_fill_stack(t_stack **stack, int argc, char *argv[])
 	ft_printf ("\n\e[4mA\e[m\t\e[4mB\e[m\n");
 	ft_printf ("------------------------\n");
 }
-*/
+
