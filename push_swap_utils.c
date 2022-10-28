@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 00:39:58 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 13:51:31 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:02:45 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ps_fill_arg(t_stack **stack, char **varg)
 				ps_stkiter(*stack, ps_plusone);
 			}
 			else
-				elem = ps_stknew(ft_atoi(varg[i]), idx);
+				elem = ps_stknew(ft_atoi(varg[i]), idx);	
 		}
 		if (!elem)
 			return (0);
