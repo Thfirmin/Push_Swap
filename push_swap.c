@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:11 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/29 00:30:18 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/29 02:01:36 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char *argv[])
 	// Sorting Stack;
 	check_stack(stack[A], stack[B]);
 	push_swap(&stack[A], &stack[B], (len - 1));
+	check_stack(stack[A], stack[B]);
 	//Clear Stack;
 	ps_clear(stack, stack[A]);
 	return (0);

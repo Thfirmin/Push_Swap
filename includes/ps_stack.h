@@ -6,7 +6,7 @@
 	/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 	/*                                                +#+#+#+#+#+   +#+           */
 	/*   Created: 2022/10/21 22:44:35 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 13:44:13 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/29 07:42:28 by thfirmin         ###   ########.fr       */
 	/*                                                                            */
 	/* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	ps_stkclear(t_stack **stack);
 void	ps_stkadd_back(t_stack **stack, t_stack *elem);
 void	ps_stkadd_front(t_stack **stack, t_stack *elem);
 void	ps_stkiter(t_stack *stack, void (*f)(int *));
+int		ps_stksize(t_stack *stack);
 
 #endif

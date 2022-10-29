@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 01:49:48 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/29 01:55:15 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/29 07:49:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,39 @@
 #include "libft.h"
 #include "ps_rules.h"
 
-void	ps_rotstack(t_stack **stack, int len)
+void	ps_rotstack(t_stack **stack, int len, int min)
 {
 	t_stack	*elem;
 	int		i;
 
-	i = 0;
 	elem = *stack;
+	if (!elem->next)
+		return ;
+	i = 0;
 	while (elem->idx < elem->next->idx)
 	{
 		elem = elem->next;
 		i ++;
 	}
-	if (i <= (len / 2))
-	{
-		while (i)
-		{
-			ra(stack);
-			i --;
-		}
-	}
-	else
-	{
-		while (i < len)
-		{
+	i ++;
+	if (i > (len / 2))
+		while ((**stack).idx != min)
 			rra(stack);
-			i ++;
-		}
+	else
+		while ((**stack).idx != min)
+			ra(stack);
+}
+
+void	ps_pickproblem(t_stack **stack)
+{
+	while ((**stack).idx < (**stack).next->idx)
+		ra(stack);
+}
+
+void	ps_deliver_step(t_stack **stka, t_stack **stkb)
+{
+	while (*stkb)
+	{
+		pa(stkb, stka);
 	}
 }

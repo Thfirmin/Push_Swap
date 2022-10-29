@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:53 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/29 01:56:30 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/29 07:47:23 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ int		ps_ispsorted(t_stack *stack);
 // Sorting Utils
 int	ps_ispsorted(t_stack *stack);
 int	ps_issemi_sorted(t_stack *stack);
-int	ps_issorted(t_stack *stack, int max);
+int	ps_issorted(t_stack *stack, int max, int min);
 
 // Sorting Operations
-void	ps_rotstack(t_stack **stack, int len);
+void	ps_rotstack(t_stack **stack, int len, int min);
+void	ps_pickproblem(t_stack **stack);
+void	ps_deliver_step(t_stack **stka, t_stack **stkb);
 
 #endif
