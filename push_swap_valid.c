@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 00:41:14 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 13:38:28 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/28 18:17:04 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ps_isalldigit(char *nbr)
 {
 	if ((*nbr == '-') || (*nbr == '+'))
 		nbr ++;
+	if (!(*nbr))
+		return (0);
 	while (*nbr)
 		if (!ft_isdigit(*nbr++))
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:53 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 13:41:08 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/29 01:56:30 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 
 // Main
 int		ps_fill_stack(t_stack **stack, int argc, char *argv[]);
+int		ps_fill_arg(t_stack **stack, char **varg);
 void	ps_error(t_stack **hstack, t_stack *stack);
 
 // Utils
 void	ps_split_clear(char **split);
-int		ps_fill_arg(t_stack **stack, char **varg);
 void	ps_clear(t_stack **hstack, t_stack *stack);
-void	ps_plusone(int *nbr);
+int		ps_tkidx(t_stack *stack, char *str, int idx);
+void	ps_plusone(t_stack **stack, int idx);
 
 // Valid
 int	ps_isvalid(t_stack *stack, char *nbr);
@@ -32,7 +33,15 @@ int	ps_isunique(t_stack *stack, char *nbr);
 int	ps_islesser(t_stack *stack, char *nbr);
 
 // Sorting
-void	push_swap(t_stack **stka, t_stack **stkb);
-int		ps_issorted(t_stack *stack);
+void	push_swap(t_stack **stka, t_stack **stkb, int len);
+int		ps_ispsorted(t_stack *stack);
+
+// Sorting Utils
+int	ps_ispsorted(t_stack *stack);
+int	ps_issemi_sorted(t_stack *stack);
+int	ps_issorted(t_stack *stack, int max);
+
+// Sorting Operations
+void	ps_rotstack(t_stack **stack, int len);
 
 #endif

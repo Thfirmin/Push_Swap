@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:11 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 13:34:00 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/10/29 00:30:18 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char *argv[])
 		ps_error(stack, stack[A]);
 	// Sorting Stack;
 	check_stack(stack[A], stack[B]);
-	//push_swap(&stack[A], &stack[B]);
+	push_swap(&stack[A], &stack[B], (len - 1));
 	//Clear Stack;
 	ps_clear(stack, stack[A]);
 	return (0);
@@ -47,6 +47,7 @@ int	ps_fill_stack(t_stack **stack, int argc, char *argv[])
 {
 	int		i;
 	int		ret;
+	int		idx;
 	char	**varg;
 
 	i = 0;
@@ -58,12 +59,35 @@ int	ps_fill_stack(t_stack **stack, int argc, char *argv[])
 		else if ((argc >= 2) && (!varg[0]))
 			return (-1);
 		ret = ps_fill_arg(stack, varg);
+		idx = ret;
 		ps_split_clear(varg);
 		if (!ret)
 			return (-1);
 		i ++;
 	}
-	return (i);
+	return (idx);
+}
+
+int	ps_fill_arg(t_stack **stack, char **varg)
+{
+	static int		idx;
+	int				i;
+	t_stack			*elem;
+
+	i = 0;
+	while (varg[i])
+	{
+		elem = 0;
+		if (ps_isvalid(*stack, varg[i]))
+			elem = ps_stknew(ft_atoi(varg[i]), ps_tkidx(*stack, varg[i], idx));
+		if (!elem)
+			return (0);
+		ps_plusone(stack, elem->idx);
+		ps_stkadd_back(stack, elem);
+		i ++;
+		idx ++;
+	}
+	return (idx);
 }
 
 static void	check_stack(t_stack *stka, t_stack *stkb)

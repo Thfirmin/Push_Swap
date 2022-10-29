@@ -1,23 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stkiter.c                                       :+:      :+:    :+:   */
+/*   ps_sort_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 13:41:47 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 14:00:32 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/10/29 01:49:48 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/10/29 01:55:15 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_stack.h"
+#include "push_swap.h"
+#include "libft.h"
+#include "ps_rules.h"
 
-void ps_stkiter(t_stack *stack, void (*f)(int *))
+void	ps_rotstack(t_stack **stack, int len)
 {
-	while (stack)
+	t_stack	*elem;
+	int		i;
+
+	i = 0;
+	elem = *stack;
+	while (elem->idx < elem->next->idx)
 	{
-		if (f)
-			f(&stack->idx);
-		stack = stack->next;
+		elem = elem->next;
+		i ++;
+	}
+	if (i <= (len / 2))
+	{
+		while (i)
+		{
+			ra(stack);
+			i --;
+		}
+	}
+	else
+	{
+		while (i < len)
+		{
+			rra(stack);
+			i ++;
+		}
 	}
 }
