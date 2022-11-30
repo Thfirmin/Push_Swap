@@ -6,7 +6,7 @@
 #    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/10/29 07:42:54 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/11/30 07:24:41 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT_SRC	= libft.a
 
 SORT_SRCS	= ps_sort.c \
 			  ps_sort_operations.c \
-			  ps_sort_utils.c
+			  ps_sort_stkstatus.c
 
 RULES_SRCS	= ps_swap.c \
 			  ps_push.c \

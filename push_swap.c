@@ -6,13 +6,14 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:11 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/29 02:01:36 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/11/30 07:40:12 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ps_rules.h"
 #include "libft.h"
+#include <stdio.h>
 
 static void	check_stack(t_stack *stka, t_stack *stkb);
 
@@ -24,14 +25,12 @@ int	main(int argc, char *argv[])
 	stack = malloc(2 * sizeof(t_stack *));
 	if (!stack)
 		ps_error(0, 0);
-	stack[B] = 0;
 	len = ps_fill_stack(&stack[A], argc, argv);
 	if (len < 0)
 		ps_error(stack, stack[A]);
 	// Sorting Stack;
-	check_stack(stack[A], stack[B]);
-	push_swap(&stack[A], &stack[B], (len - 1));
-	check_stack(stack[A], stack[B]);
+	//check_stack(stack[A], stack[B]);
+	push_swap(&stack[A], &stack[B], len);
 	//Clear Stack;
 	ps_clear(stack, stack[A]);
 	return (0);
@@ -83,6 +82,7 @@ int	ps_fill_arg(t_stack **stack, char **varg)
 			elem = ps_stknew(ft_atoi(varg[i]), ps_tkidx(*stack, varg[i], idx));
 		if (!elem)
 			return (0);
+		(void) check_stack;
 		ps_plusone(stack, elem->idx);
 		ps_stkadd_back(stack, elem);
 		i ++;
