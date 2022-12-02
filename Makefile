@@ -6,7 +6,7 @@
 #    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/11/30 07:24:41 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/12/02 14:09:57 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ $(LIBFT):
 	$(MAKE) $(LIBFT_PATH)
 
 $(NAME):	$(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(INCLUDE) $(LIBFT) $(OBJS) -o $(NAME) 
 
 $(OBJS): $(SRCS)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $*.c -o $@

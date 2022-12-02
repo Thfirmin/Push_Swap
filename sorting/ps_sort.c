@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:00:18 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/11/30 07:58:20 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/02 13:41:15 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@ void	push_swap(t_stack **stka, t_stack **stkb, int len)
 {
 	if (ps_issorted(*stka))
 		return ;
-	else if (ps_isordered(*stka))
-		ft_printf("is ordered!\n");
 	else if (len <= 3)
 		ps_sorting_three(stka);
-	else if (ps_isssorted(*stka))
-		ft_printf("is semi sorted!\n");
 	else if (len <= 5)
 		ps_sorting_five(stka, stkb);
 	else 
@@ -38,9 +34,15 @@ void	push_swap(t_stack **stka, t_stack **stkb, int len)
 
 static void	ps_sorting_three(t_stack **stka)
 {
-	ft_printf ("Sorting three or less elements");
-	(void) stka;
-	return ;
+	while (!ps_issorted(*stka))
+	{
+		if (ps_isordered(*stka) && ((**stka).idx == 1))
+			rra(stka);
+		else if (ps_isordered(*stka) && ((**stka).idx == 2))
+			ra(stka);
+		else
+			sa(stka);
+	}
 }
 
 static void	ps_sorting_five(t_stack **stka, t_stack **stkb)
