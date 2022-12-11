@@ -16,3 +16,30 @@
 [x] Create Rotate operations (to stacks A, B and A&B)
 [x] Create Reverse Rotate (to stacks A, B and A&B)
 [x] Create Push (to stacks A and B)
+
+## Validation
+
+[] Validate Arguments
+[] Duplicated number
+[] number positive and negative (begin with '+', '-')
+	[] '+' and '-' without a number isn't viable
+[] Number bigger than INT_MAX or lower than INT_MIN
+[] Existent argument but withou number
+[] Prohibited characters
+
+## Sorting
+
+[] Sorting three numbers
+[] Sorting Five numbers
+[] Chunks sorting
+
+> Psequisar "Tree sorting"
+
+## Checker
+
+[x] Init stack
+[x] Receive STDIN steps
+[x] Execute steps
+[x] Verify if stack B is empty
+[x] Verify if stack A is sorted 
+[x] Print final result

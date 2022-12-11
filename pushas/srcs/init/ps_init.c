@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:48:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/11 00:10:13 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/11 03:11:47 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ static int	ps_iterate_args(t_stack **stack, char **args)
 // Validate ascii-number passed
 static int	ps_isvalid(char *nbr)
 {
-	(void) nbr;
+	if (!ps_isalldigit(nbr))
+		return (0);
 	return (1);
 }
 
