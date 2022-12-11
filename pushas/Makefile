@@ -6,7 +6,7 @@
 #    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 15:06:33 by thfirmin          #+#    #+#              #
-#    Updated: 2022/12/11 16:28:32 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/12/11 16:39:18 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,22 +111,22 @@ FULLER			= \e[7m
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
 
-all:		$(LIBFT) $(NAME)
+all:		libft $(NAME)
 
-$(LIBFT):
+libft:
 	$(MAKE) $(PTH_LIBFT)
 
-$(NAME):	$(PKG_OBJS) $(MDTRY_OBJS)
+$(NAME):	$(PKG_OBJS) $(MDTRY_OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(INCLUDE) $(MDTRY_OBJS) $(PKG_OBJS) $(LIBFT) -o $(NAME)
 
-bonus:	all $(GNL) $(BONUS)
+bonus:	all gnl $(BONUS)
 
 $(BONUS): INCLUDE+=$(BN_INCLUDE)
 
-$(BONUS): $(BONUS_OBJS)
+$(BONUS): $(BONUS_OBJS) $(PKG_OBJS) $(LIBFT) $(GNL)
 	$(CC) $(CFLAGS) $(INCLUDE) $(BONUS_OBJS) $(PKG_OBJS) $(LIBFT) $(GNL) -o $(BONUS)
 
-$(GNL):
+gnl:
 	$(MAKE) $(PTH_GNL)
 
 clean:
@@ -142,6 +142,6 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re libft bonus gnl
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # vim: fdm=marker fmr=+>,<+ ts=4 sw=4 nofen noet:

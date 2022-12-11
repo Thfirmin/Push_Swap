@@ -6,13 +6,13 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:37:31 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/23 01:13:02 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:40:49 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//convert ASCII string to integer
+//convert ASCII string to integer.
 
 ssize_t	ft_atoi(const char *str)
 {
