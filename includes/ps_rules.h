@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:55:30 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/25 17:39:13 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:32:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ps_stack.h"
 
 // Push
-void	pa(t_stack **stkb, t_stack **stka);
+void	pa(t_stack **stka, t_stack **stkb);
 void	pb(t_stack **stka, t_stack **stkb);
 
 // Swap

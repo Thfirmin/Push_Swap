@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:54:53 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/11/30 07:57:47 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:07:43 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ int	ps_isordered(t_stack *stack);
 void	ps_rotstack(t_stack **stack, int len, int min);
 void	ps_pickproblem(t_stack **stack);
 void	ps_deliver_step(t_stack **stka, t_stack **stkb);
+int		ps_shorter_idx(t_stack *stkx);
+
+// Checking
+void	check_stack(t_stack *stka, t_stack *stkb);
 
 #endif

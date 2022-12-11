@@ -4,7 +4,7 @@ echo -n "Put some sequences: "
 read ARGS
 
 echo "Checker binary file name: "
-read CHCK_NAME
+CHCK_NAME=$1
 
 PS_BIN=push_swap
 

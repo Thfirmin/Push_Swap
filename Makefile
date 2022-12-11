@@ -6,7 +6,7 @@
 #    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/12/02 14:09:57 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/12/02 17:30:59 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,12 +39,13 @@ STACK_SRCS	= ps_stknew.c      \
 
 MAIN_SRCS	= push_swap.c       \
 			  push_swap_utils.c \
-			  push_swap_valid.c
+			  push_swap_valid.c \
+			  checking.c
 
 SRCS		= $(addprefix $(STACK_PATH),$(STACK_SRCS)) \
 			  $(addprefix $(SORT_PATH),$(SORT_SRCS)) \
 			  $(addprefix $(RULES_PATH),$(RULES_SRCS)) \
-			  $(MAIN_SRCS)
+			  $(addprefix $(SRCS_PATH),$(MAIN_SRCS))
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                 OBJECT FILES
 
@@ -52,9 +53,10 @@ OBJS		= $(subst .c,.o,$(SRCS))
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                    ALIASES
 
-SORT_PATH	= sorting/
-RULES_PATH	= rules/
-STACK_PATH	= stack/
+SRCS_PATH	= srcs/
+SORT_PATH	= $(SRCS_PATH)sort/
+RULES_PATH	= $(SRCS_PATH)rules/
+STACK_PATH	= $(SRCS_PATH)stack/
 LIBFT_PATH	= libft/
 
 RM			= rm -rf
