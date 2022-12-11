@@ -1,0 +1,18 @@
+# Push_Swap
+
+## Stack Engine
+
+[x] Create new node
+[x] Delete a node
+[x] Add a node form the front of list
+[x] Add a node from the back of list
+[x] Delete a list
+[x] Take list size
+[x] Take last node of list
+
+## Operations
+
+[x] Create swap operations (to stacks A, B and A&B)
+[x] Create Rotate operations (to stacks A, B and A&B)
+[x] Create Reverse Rotate (to stacks A, B and A&B)
+[x] Create Push (to stacks A and B)
