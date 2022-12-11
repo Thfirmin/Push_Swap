@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checking.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/02 15:05:10 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/09 21:23:08 by thfirmin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+#include "libft.h"
+
+void	check_stack(t_stack *stka, t_stack *stkb)
+{
+	ft_printf ("------------------------\n");
+	while (stka || stkb)
+	{
+		if (stka)
+			ft_printf ("%d (%d)\t", stka->nbr, stka->idx);
+		else
+			ft_printf ("  \t");
+		if (stkb)
+			ft_printf ("%d (%d)\n", stkb->nbr, stkb->idx);
+		else
+			ft_printf ("\n");
+		if (stka)
+			stka = stka->next;
+		if (stkb)
+			stkb = stkb->next;
+	}
+	ft_printf ("\n\e[4mA\e[m\t\e[4mB\e[m\n");
+	ft_printf ("------------------------\n");
+}
