@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:48:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 01:32:23 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/12 02:34:40 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int	ps_indexing_node(t_stack *stack, int n);
 
-static int	ps_isvalid(char *nbr);
+static int	ps_isvalid(t_stack *stack, char *nbr);
 
 static int	ps_iterate_args(t_stack **stack, char **args);
 
@@ -58,7 +58,7 @@ static int	ps_iterate_args(t_stack **stack, char **args)
 	i = -1;
 	while (args[++i])
 	{
-		if (ps_isvalid(args[i]))
+		if (ps_isvalid(*stack, args[i]))
 		{
 			number = ft_atoi(args[i]);
 			index = ps_indexing_node(*stack, number);
@@ -74,11 +74,13 @@ static int	ps_iterate_args(t_stack **stack, char **args)
 }
 
 // Validate ascii-number passed
-static int	ps_isvalid(char *nbr)
+static int	ps_isvalid(t_stack *stack, char *nbr)
 {
 	if (!ps_isalldigit(nbr))
 		return (0);
 	else if (!ps_isint(nbr))
+		return (0);
+	else if (!ps_isunique(stack, nbr))
 		return (0);
 	return (1);
 }

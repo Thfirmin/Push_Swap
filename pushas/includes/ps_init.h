@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:30:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 01:31:47 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/12 02:32:21 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ t_stack	**ps_init(int argc, char *argv[]);
 void	ps_free_split(char **splitted);
 int		ps_isalldigit(char *nbr);
 int		ps_isint(char *nbr);
+int		ps_isunique(t_stack *stack, char *nbr);
 
 #endif

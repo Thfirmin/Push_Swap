@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 01:03:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 01:50:38 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/12 02:31:59 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,21 @@ int	ps_isint(char *nbr)
 	n = ft_atoi(nbr);
 	if ((n > MAX) || (n < MIN))
 		return (0);
+	return (1);
+}
+
+int	ps_isunique(t_stack *stack, char *nbr)
+{
+	int	num;
+
+	num = ft_atoi(nbr);
+	if (!stack)
+		return (1);
+	while (stack)
+	{
+		if (stack->nbr == num)
+			return (0);
+		stack = stack->next;
+	}
 	return (1);
 }
