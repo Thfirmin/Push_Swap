@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_utils.c                                         :+:      :+:    :+:   */
+/*   ps_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 00:58:07 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/10 23:39:55 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:36:25 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,8 @@
 void	ps_error(char *message, t_stack **stack, int ret)
 {
 	if (stack)
-		ps_clear(stack);
+		ps_ab_stkclear(stack);
 	if (message)
 		ft_putendl_fd(message, ret);
 	exit (ret);
-}
-
-// Clear stack properly
-void	ps_clear(t_stack **stack)
-{
-	if (stack[A])
-		ps_stkclear(&stack[A]);
-	if (stack[B])
-		ps_stkclear(&stack[B]);
-	free(stack);
 }

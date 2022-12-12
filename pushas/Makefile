@@ -6,7 +6,7 @@
 #    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 15:06:33 by thfirmin          #+#    #+#              #
-#    Updated: 2022/12/11 22:06:46 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/12/12 12:47:26 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,16 @@ SRCS_OPRTN	= ps_push.c \
 			  ps_swap.c
 
 SRCS_UTILS	= ps_check_stack.c \
-			  ps_utils.c
+			  ps_error.c \
+			  ps_stkstatus.c \
+			  ps_stkutils.c \
+			  push_swap_utils.c
 
 SRCS_INIT	= ps_init.c \
 			  ps_init_utils.c
 
-SRCS_MDTRY	= ps_main.c
+SRCS_MDTRY	= ps_main.c \
+			  push_swap.c \
 
 SRCS_BONUS	= ps_checker_main.c \
 			  ps_checker_utils.c

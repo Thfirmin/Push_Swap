@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:33:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/11 03:29:59 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:53:14 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(int argc, char *argv[])
 	stack = ps_init(argc, argv);
 	if (!stack)
 		return (1);
+	push_swap(stack);
 	ps_check_stack(stack[A], stack[B]);
-	ps_clear(stack);
+	ps_ab_stkclear(stack);
 	return (0);
 }

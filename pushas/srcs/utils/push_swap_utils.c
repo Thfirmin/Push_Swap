@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_utils.h                                         :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 01:15:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 12:51:30 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/12/12 12:27:34 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/12 13:00:07 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_UTILS_H
-# define PS_UTILS_H
+#include "ps_stack.h"
+#include "ps_utils.h"
+#include "ps_operations.h"
 
-// Stack checking
-void	ps_check_stack(t_stack *stka, t_stack *stkb);
+void	take_shorter(t_stack **stack, char stk)
+{
+	int		shorter;
 
-// Error util
-void	ps_error(char *message, t_stack **stack, int ret);
-
-// Stack util
-void	take_min_n_max(t_stack *stack, int *min, int *max);
-void	ps_ab_stkclear(t_stack **stack);
-
-// Push_swap utils
-void	take_shorter(t_stack **stack, char stk);
-
-#endif
+	take_min_n_max(*stack, &shorter, 0);
+	while ((**stack).idx != shorter)
+		rx(stack, 0, stk);
+}
