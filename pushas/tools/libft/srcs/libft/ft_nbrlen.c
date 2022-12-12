@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 15:05:20 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/11/23 03:14:14 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/08/06 23:47:20 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/11 21:01:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+// Return number of algorism in a integer
+int	ft_nbrlen(ssize_t n)
 {
-	t_list	*newlst;
-	t_list	*node;
-	t_list	*tmp;
-	void	*elem;
+	size_t	nbr;
+	int		len;
 
-	tmp = lst;
-	newlst = (void *)0;
-	while (tmp)
+	len = 0;
+	if (n < 0)
 	{
-		if (f)
-			elem = f(tmp->content);
-		node = ft_lstnew(elem);
-		if (!node)
-		{
-			ft_lstclear(&newlst, del);
-			return (0);
-		}
-		ft_lstadd_back(&newlst, node);
-		tmp = tmp->next;
+		len += 1;
+		nbr = (n * -1);
 	}
-	return (newlst);
+	else
+		nbr = n;
+	if (nbr != 0)
+	{
+		len += ft_nbrlen(nbr / 10);
+		len ++;
+	}
+	return (len);
 }

@@ -1,76 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                       :+:     :+:            */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
+/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 23:58:21 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/08/17 18:39:57 by Thinotsuki   ###     ###.br              */
+/*   Created: 2022/11/06 18:21:13 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/11 22:09:06 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
+static int	ft_putformatted_fd(char mask, va_list *ap, int fd);
 
-
-static size_t	holderfinder(const char plcholder, va_list plcvalue);
-
-int	ft_printf(const char *ptstr, ...)
+// Implementation of printf of stdio library.
+int	ft_printf(const char *format, ...)
 {
-	size_t	i;
-	size_t	len;
-	va_list	plcvalue;
+	int		len;
+	va_list	ap;
 
-	i = 0;
-	len = 0;
-	if (!ptstr)
+	if (!format)
 		return (0);
-	va_start(plcvalue, ptstr);
-	while (ptstr[i])
+	len = 0;
+	va_start(ap, format);
+	while (*format)
 	{
-		if (ptstr[i] == '%' && ft_strchr("cspdiuxX%", ptstr[i + 1]))
-		{
-			len += holderfinder(ptstr[i + 1], plcvalue);
-			i += 2;
-		}
+		if (*format == '%')
+			len += ft_putformatted_fd(*++format, &ap, 1);
 		else
-		{
-			if (ptstr[i] == '%')
-				i++;
-			len += ft_putchar_fd(ptstr[i++], 1);
-		}
+			len += ft_putchar_fd(*format, 1);
+		format ++;
 	}
-	va_end(plcvalue);
+	va_end(ap);
 	return (len);
 }
 
-static size_t	holderfinder(const char plcholder, va_list plcvalue)
+static int	ft_putformatted_fd(char mask, va_list *ap, int fd)
 {
-	size_t	len;
+	int		len;
 	char	*str;
 
 	len = 0;
-	if (plcholder == '%')
-		len += ft_putchar_fd('%', 1);
-	else if (plcholder == 'c')
-		len += ft_putchar_fd(va_arg(plcvalue, int), 1);
-	else if (plcholder == 's')
+	if ((mask == 'd') || (mask == 'i'))
+		len += ft_putnbr_fd(va_arg(*ap, int), fd);
+	else if (mask == 'u')
+		len += ft_putunbr_fd(va_arg(*ap, unsigned int), fd);
+	else if ((mask == 'p') || (mask == 'x')|| (mask == 'X'))
+		len += ft_puthex_fd(va_arg(*ap, long unsigned int), (mask - 'X'), fd);
+	else if (mask == 'c')
+		len += ft_putchar_fd(va_arg(*ap, int), fd);
+	else if (mask == '%')
+		len += ft_putchar_fd('%', fd);
+	else if (mask == 's')
 	{
-		str = va_arg(plcvalue, char*);
-		if (str)
-			len += ft_putstr_fd(str, 1);
+		str = va_arg(*ap, char *);
+		if (!str)
+			len += ft_putstr_fd("(null)", fd);
 		else
-			len += ft_putstr_fd("(null)", 1);
+			len += ft_putstr_fd(str, fd);
 	}
-	else if (plcholder == 'd' || plcholder == 'i')
-		len += ft_putnbr_fd(va_arg(plcvalue, int), 1);
-	else if (plcholder == 'u')
-		len += ft_putunbr_fd(va_arg(plcvalue, unsigned int), 1);
-	else if (plcholder == 'p')
-		len += ft_putptr_fd(va_arg(plcvalue, void *), 1);
-	else if (plcholder == 'x' || plcholder == 'X')
-		len += ft_puthex_fd(va_arg(plcvalue, int), plcholder, 1);
 	return (len);
 }
+
+//cspdiuxX%

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                       :+:     :+:            */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
+/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 05:15:38 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/08/15 08:55:27 by Thinotsuki   ###     ###.br              */
+/*   Created: 2022/11/06 17:13:30 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/11 21:36:47 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <stdarg.h>
+# define MASK "cspdiuxX%"
 # include "libft.h"
+# include <stdarg.h>
 
-int		ft_printf(const char *ptstr, ...);
-size_t	ft_putunbr_fd(unsigned int nb, int fd);
-size_t	ft_putptr_fd(void *ptr, int fd);
-size_t	ft_puthex_fd(unsigned int nb, char plcholder, int fd);
+int	ft_printf(const char *format, ...);
+
+int	ft_puthex_fd(long unsigned int hex, char mode, int fd);
+int	ft_putunbr_fd(unsigned int unbr, int fd);
 
 #endif

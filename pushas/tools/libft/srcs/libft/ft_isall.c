@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 12:44:31 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/11/07 13:17:50 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/11/26 00:52:29 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/11 21:03:27 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_puthex_fd(long unsigned int hex, char mode, int fd)
+// Iterate a string verifyng if he's fully a type string
+char	*ft_isall(char *str, int (*is)(int))
 {
-	int	len;
-
-	len = 0;
-	if (mode == ('p' - 'X'))
+	while (*str)
 	{
-		len += ft_putstr_fd("0x", fd);
-		mode = 32;
+		if (!is(*str))
+			return (str);
+		str ++;
 	}
-	if (hex >= 16)
-		len += ft_puthex_fd((hex / 16), mode, fd);
-	if ((hex % 16) < 10)
-		len += ft_putchar_fd(('0' + (hex % 16)), fd);
-	else
-		len += ft_putchar_fd((('A' + mode) + ((hex % 16) - 10)), fd);
-	return (len);
+	return (0);
 }

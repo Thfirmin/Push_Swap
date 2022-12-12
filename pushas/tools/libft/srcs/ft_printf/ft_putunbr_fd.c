@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr_fd.c                                   :+:     :+:            */
+/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
+/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 20:51:56 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/08/17 18:41:43 by Thinotsuki   ###     ###.br              */
+/*   Created: 2022/11/07 12:45:58 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/11/07 13:20:02 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-size_t	ft_putunbr_fd(unsigned int nb, int fd)
+int	ft_putunbr_fd(unsigned int unbr, int fd)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
-	if (nb >= 10)
-		len += ft_putunbr_fd((nb / 10), fd);
-	len += ft_putchar_fd(((nb % 10) + '0'), fd);
+	if (unbr >= 10)
+		len += ft_putunbr_fd((unbr / 10), fd);
+	len += ft_putchar_fd(('0' + (unbr % 10)), fd);
 	return (len);
 }

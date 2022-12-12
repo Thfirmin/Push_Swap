@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:58:13 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/06 17:31:03 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/11/23 02:10:52 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*nxt;
+
 	while (*lst)
 	{
-		ft_lstdelone(*lst, del);
-		*lst = (**lst).next;
+		nxt = (**lst).next;
+		if (del)
+			del((**lst).content);
+		free (*lst);
+		*lst = nxt;
 	}
 }

@@ -6,12 +6,13 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:49:21 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/11 16:40:23 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/11 22:07:51 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+// Get the next line of an fd
 char	*get_next_line(int fd)
 {
 	static char	*str;

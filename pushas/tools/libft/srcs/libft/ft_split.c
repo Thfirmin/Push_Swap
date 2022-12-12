@@ -3,88 +3,89 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
+/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 01:37:06 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/06/14 21:26:42 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/12/11 17:08:03 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/12/11 23:47:06 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nextwrd(const char *str, char set, int start);
+static size_t	ft_wordlen(char const *s, char set);
 
-static int	ft_setlen(const char *str, char set);
+static int		ft_setjumper(char const *s, char set);
 
-static int	ft_countwrd(const char *str, char set);
+static int		ft_count_words(char const *s, char set);
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	int		count;
-	int		aux;
-	int		len;
+	char	**split;
+	int		words;
+	int		i;
 	int		start;
-	char	**str;
+	int		len;
 
-	aux = -1;
-	start = 0;
-	count = ft_countwrd(s, c);
-	str = malloc(sizeof(char *) * (count + 1));
-	if (!str)
+	if (!s)
 		return (0);
-	while (++aux < count)
+	words = ft_count_words(s, c);
+	split = malloc((words + 1) * sizeof(char *));
+	if (!split)
+		return (0);
+	i = -1;
+	start = 0;
+	while (++i < words)
 	{
-		start = ft_nextwrd(s, c, start);
-		len = ft_setlen((s + start), c);
-		*(str + aux) = ft_substr(s, start, len);
+		if ((!start && *s == c) || start)
+			start += ft_setjumper((s + start), c);
+		len = ft_wordlen((s + start), c);
+		*(split + i) = ft_substr(s, start, len);
 		start += len;
 	}
-	*(str + aux) = (NULL);
-	return (str);
+	*(split + words) = (void *)0; 
+	return (split);
 }
 
-static int	ft_countwrd(const char *str, char set)
+static int	ft_count_words(char const *s, char set)
 {
-	int	count;
+	int	words;
+	int	i;
 
-	count = 0;
-	while (*str != '\0')
+	if (!*s)
+		return (1);
+	words = 0;
+	i = 0;
+	while (*(s + i))
 	{
-		if (*str != set)
+		if (*(s + i) != set)
 		{
-			count ++;
-			while (*(str + 1) != set && *(str + 1) != '\0')
-			{
-				str ++;
-			}
+			words ++;
+			while (*(s + i) && *(s + i) != set)
+				i ++;
 		}
-		str ++;
+		else
+			while ((*(s + i)) && (*(s + i) == set))
+				i ++;
 	}
-	return (count);
+	return (words);
 }
 
-static int	ft_setlen(const char *str, char set)
+static int	ft_setjumper(char const *s, char set)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	while (*str != set && *str != '\0')
-	{
-		count ++;
-		str ++;
-	}
-	return (count);
+	i = 0;
+	while ((*(s + i) == set) && (*(s + i)))
+		i ++;
+	return (i);
 }
 
-static int	ft_nextwrd(const char *str, char set, int start)
+static size_t	ft_wordlen(char const *s, char set)
 {
-	while (*(str + start) != '\0')
-	{
-		if (*(str + start) != set)
-		{
-			return (start);
-		}
-		start ++;
-	}
-	return (0);
+	size_t	len;
+
+	len = 0;
+	while (s && (*(s + len) && (*(s + len) != set)))
+		len ++;
+	return (len);
 }

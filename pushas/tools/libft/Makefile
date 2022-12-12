@@ -3,94 +3,74 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thino <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/13 03:44:47 by thino             #+#    #+#              #
-#    Updated: 2022/10/21 23:36:46 by thfirmin         ###   ########.fr        #
+#    Created: 2022/12/11 21:07:07 by thfirmin          #+#    #+#              #
+#    Updated: 2022/12/11 21:44:29 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# +>                                     NAME
+# +>                                     NAME 
 
 NAME	= libft.a
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
-# +>                                 SOURCE FILES
+# +>                                     PATHS 
 
-SRC_ROOT	= srcs
-
-SRCS_DIR	= ft_printf \
-			  libft
-
-SRCS_PATH	= $(addprefix $(SRC_ROOT)/, $(SRCS_DIR))
+PTH_SRCS	= srcs/
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
-# +>                                 OBJECT FILES
+# +>                                    SOURCES 
 
-OBJS	= $(foreach objs, $(SRCS_PATH), $(objs)/*.o)
+SRCS	= libft \
+		  ft_printf
 
-LIBS	= *.a
+LIBS	= $(addprefix $(PTH_SRCS),$(SRCS))
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
-# +>                                    ALIASES
+# +>                                    ALIASES 
 
-RM			= rm -rf
-AR			= ar rcs
-CC			= cc
-INCLUDE		= -I $(LIB)
-CFLAGS		= -g -Wall -Wextra -Werror
-MAKEFLAGS	+= --silent
+MAKE	= make --no-print-directory -C
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
-# +>                                  TEXT CODES
+# +>                                     CODES 
 
-BLANK		= \033[m
-RED			= \033[38;5;9m
-YELLOW		= \033[38;5;11m
-GREEN		= \033[38;5;2m
-BLUE		= \033[38;5;6m
-PURPLE		= \033[38;5;5m
-PINK		= \033[38;5;13m
-WHITE		= \033[38;5;15m
+BLANK			= \e[m
+RED				= \e[38;5;9m
+YELLOW			= \e[38;5;11m
+GREEN			= \e[38;5;2m
+BLUE			= \e[38;5;6m
+PURPLE			= \e[38;5;5m
+PINK			= \e[38;5;13m
+WHITE			= \e[38;5;15m
 
-BOLD		= \033[1m
-SHADOW		= \033[2m
-ITALIC		= \033[3m
-UNDLINE		= \033[4m
-UPPLINE		= \033[53m
-DUNDLINE	= \033[21m
-CENSORED	= \033[9m
-UPALIGN		= \033[73m
-DWALIGN		= \033[74m
-FULLER		= \033[7m
+STRONG			= \e[1m
+SHADOW			= \e[2m
+ITALIC			= \e[3m
+UNDLINE			= \e[4m
+UPPLINE			= \e[53m
+DUNDLINE		= \e[21m
+CENSORED		= \e[9m
+UPALIGN			= \e[73m
+DWALIGN			= \e[74m
+FULLER			= \e[7m
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
-# +>                                     RULES
+# +>                                     RULES 
 
 all:		$(NAME)
 
-$(NAME):	checking $(LIBS)
-	printf "[$(PURPLE)$(UNDLINE)Objects of $(NAME)$(BLANK)] $(GREEN)Has Been $(BOLD)Compiled!$(BLANK)\n"
-	$(AR) $(NAME) $(OBJS)
-	printf "[$(PURPLE)$(UNDLINE)$(NAME)$(BLANK)] $(GREEN)Has Been $(BOLD)Created!$(BLANK)\n"
+$(NAME):	update
 
-$(LIBS):
-	$(foreach dir, $(SRCS_PATH), $(MAKE) -C $(dir) &&) true
-	printf "[$(PURPLE)$(UNDLINE)Libraries of Final $(NAME)$(BLANK)] $(GREEN)Has Been $(BOLD)Compiled!$(BLANK)\n"
+update:
+	$(foreach libs,$(LIBS),$(MAKE) $(libs);)
 
 clean:
-	$(foreach dir, $(SRCS_PATH), $(MAKE) clean -C $(dir) &&) true
-	printf "[$(PURPLE)$(UNDLINE)Objects of Final $(NAME)$(BLANK)] $(YELLOW)Has Been $(BOLD)Deleted!$(BLANK)\n"
+	$(foreach libs,$(LIBS),$(MAKE) $(libs) clean;)
 
-fclean:
-	$(foreach dir, $(SRCS_PATH), $(MAKE) fclean -C $(dir) &&) true
-	printf "[$(PURPLE)$(UNDLINE)Libraries of Final $(NAME)$(BLANK)] $(RED)Has Been $(BOLD)Deleted!$(BLANK)\n"
-	$(RM) $(NAME)
-	printf "[$(PURPLE)$(UNDLINE)Final $(NAME)$(BLANK)] $(RED)Has Been $(BOLD)Deleted!$(BLANK)\n"
+fclean:		clean
+	$(foreach libs,$(LIBS),$(MAKE) $(libs) fclean;)
+ifneq (,$(shell ls $(NAME) 2> /dev/null))
+	rm -rf $(NAME)
+endif
 
-re:			recompiling fclean libft.a
+re:			fclean all
 
-checking:
-	printf "$(BOLD)Checking [$(PURPLE)$(UNDLINE)Objects of $(NAME)$(BLANK)]...\n"
-
-recompiling:
-	printf "[$(PURPLE)$(UNDLINE)Final $(NAME)$(BLANK)] is Being $(BOLD)Recompiled$(BLANK)...\n"
-
-.PHONY:		all clean fclean re recompiling checking
+.PHONY:		all clean fclean re update
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # vim: fdm=marker fmr=+>,<+ ts=4 sw=4 nofen noet:

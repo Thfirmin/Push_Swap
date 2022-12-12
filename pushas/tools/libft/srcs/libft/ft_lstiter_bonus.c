@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:04:00 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/06 18:20:00 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/11/23 01:48:31 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst)
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp)
 	{
 		if (f)
-			f(lst->content);
-		lst = lst->next;
+			f(tmp->content);
+		tmp = tmp->next;
 	}
 }

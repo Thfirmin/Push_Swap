@@ -6,7 +6,7 @@
 #    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 15:06:33 by thfirmin          #+#    #+#              #
-#    Updated: 2022/12/11 16:39:18 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/12/11 22:06:46 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ CC	= cc
 CFLAGS	= -Wall -Wextra -Werror -g
 INCLUDE	= -I $(PTH_INCLD) -I $(PTH_LIBFT)
 BN_INCLUDE = -I $(PTH_GNL)
-MAKE	= make -C
+MAKE	= make --no-print-directory -C
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                     CODES 
 

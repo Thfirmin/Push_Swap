@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 18:25:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/06/09 23:16:18 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:30:46 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = count;
 	str = malloc(sizeof(*s) * (len + 1));
 	if (!str)
-		return (NULL);
+		return (0);
 	ft_strlcpy(str, s, len + 1);
 	return (str);
 }
