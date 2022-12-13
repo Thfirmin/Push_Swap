@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:38:54 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 12:35:01 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:54:05 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	ps_issorted(t_stack *stack)
 
 int	ps_isordered(t_stack *stack)
 {
-	int	min;
-	int	max;
-	int	frst_idx;
+	unsigned int	min;
+	unsigned int	max;
+	unsigned int	frst_idx;
 
 	frst_idx = stack->idx;
 	take_min_n_max(stack, &min, &max);

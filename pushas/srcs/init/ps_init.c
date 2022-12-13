@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:48:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 02:34:40 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:54:37 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	ps_isvalid(t_stack *stack, char *nbr)
 // Comparing number from list and indexing her
 static int	ps_indexing_node(t_stack *stack, int n)
 {
-	int	index;
+	unsigned int	index;
 
 	index = 0;
 	if (!stack)
