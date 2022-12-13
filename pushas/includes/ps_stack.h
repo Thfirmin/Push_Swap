@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:09:40 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/09 21:11:08 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:12:20 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct s_stack
 {
 	int				nbr;
-	int				idx;
+	unsigned int	idx;
 	struct s_stack	*next;
 }					t_stack;
 

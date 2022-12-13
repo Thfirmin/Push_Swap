@@ -6,14 +6,14 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:31:37 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 12:36:11 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:27:21 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
 // Take bigger and shorter index of a stack
-void	take_min_n_max(t_stack *stack, int *min, int *max)
+void	take_min_n_max(t_stack *stack, unsigned int *min, unsigned int *max)
 {
 	if (!stack)
 		return ;

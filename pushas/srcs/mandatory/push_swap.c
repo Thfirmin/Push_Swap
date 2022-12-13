@@ -6,11 +6,13 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:31:20 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 13:01:57 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:11:56 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ps_chunks(t_stack **stka, t_stack **stkb, int len);
 
 static void	ps_sort_five(t_stack **stka, t_stack **stkb);
 
@@ -25,6 +27,8 @@ void	push_swap(t_stack **stack)
 		ps_sort_three(&stack[A]);
 	else if (len <= 5)
 		ps_sort_five(&stack[A], &stack[B]);
+	else
+		ps_chunks(&stack[A], &stack[B], len);
 }
 
 static void	ps_sort_three(t_stack **stka)
@@ -42,13 +46,44 @@ static void	ps_sort_three(t_stack **stka)
 
 static void	ps_sort_five(t_stack **stka, t_stack **stkb)
 {
+	unsigned int	min;
+
 	while (!ps_issorted(*stka))
 	{
-		take_shorter(stka, 'a');
+		take_min_n_max(*stka, &min, 0);
+		picker(stka, min, min, 'a');
 		px(stka, stkb, 'b');
 		if (ps_stksize(*stka) == 3)
 			ps_sort_three(stka);
 	}
 	while (*stkb)
 		px(stkb, stka, 'a');
+}
+
+static void	ps_chunks(t_stack **stka, t_stack **stkb, int len)
+{
+	int	interview;
+	int	i;
+	int	min;
+	int	max;
+
+	interview = ((len * (10 / 100)) / 2 + 1);
+	min = (len / 2);
+	max = (len / 2);
+	while (*stka)
+	{
+		min -= interview;
+		max += interview;
+		i = -1;
+		while (*stka && (++i < (interview * 2)))
+		{
+			picker(stka, min, max, 'a');
+			px(stka, stkb, 'b');
+		}
+	}
+	while (*stkb && (--len > -1))
+	{
+		picker(stkb, len, len, 'b');
+		px(stkb, stka, 'a');
+	}
 }

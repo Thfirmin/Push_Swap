@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 01:15:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 12:51:30 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:26:55 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ void	ps_check_stack(t_stack *stka, t_stack *stkb);
 void	ps_error(char *message, t_stack **stack, int ret);
 
 // Stack util
-void	take_min_n_max(t_stack *stack, int *min, int *max);
+void	take_min_n_max(t_stack *stack, unsigned int *min, unsigned int *max);
 void	ps_ab_stkclear(t_stack **stack);
 
 // Push_swap utils
 void	take_shorter(t_stack **stack, char stk);
+void	picker(t_stack **stka, unsigned int min, unsigned int max, char stk);
 
 #endif

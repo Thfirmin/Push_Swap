@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:12:05 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/11 22:14:45 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:12:44 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	px(t_stack **stk1, t_stack **stk2, char stk)
 	*stk1 = (**stk1).next;
 	node->next = 0;
 	ps_stkadd_front(stk2, node);
+	(void) stk;
 	if (stk)
 		ft_printf("p%c\n", stk);
 }

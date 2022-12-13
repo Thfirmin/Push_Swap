@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 01:03:32 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/12 02:31:59 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:21:18 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ps_free_split(char **splitted)
 	while (splitted[++i])
 		free(splitted[i]);
 	free(splitted);
-	*splitted = 0;
 }
 
 // Verify prohibit letters and empty argument
