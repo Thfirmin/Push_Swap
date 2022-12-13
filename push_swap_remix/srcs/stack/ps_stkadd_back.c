@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main.c                                          :+:      :+:    :+:   */
+/*   ps_stkadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 21:33:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/13 13:35:34 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/10/21 23:00:06 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/10/21 23:02:21 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ps_stack.h"
 
-// Initialize and sort stack
-int	main(int argc, char *argv[])
+void	ps_stkadd_back(t_stack **stack, t_stack *elem)
 {
-	t_stack **stack;
+	t_stack	*lstelem;
 
-	if (argc <= 1)
-		return (0);
-	stack = ps_init(argc, argv);
-	if (!stack)
-		return (1);
-	push_swap(stack);
-	ps_ab_stkclear(stack);
-	return (0);
+	lstelem = ps_stklast(*stack);
+	if (!lstelem)
+		*stack = elem;
+	else
+		(*lstelem).next = elem;
+
 }

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main.c                                          :+:      :+:    :+:   */
+/*   ps_stknew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 21:33:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/13 13:35:34 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/10/21 22:42:31 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/10/28 13:21:23 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ps_stack.h"
 
-// Initialize and sort stack
-int	main(int argc, char *argv[])
+t_stack	*ps_stknew(int nbr, int index)
 {
-	t_stack **stack;
+	t_stack	*newstk;
 
-	if (argc <= 1)
+	newstk = malloc(sizeof(t_stack));
+	if (!newstk)
 		return (0);
-	stack = ps_init(argc, argv);
-	if (!stack)
-		return (1);
-	push_swap(stack);
-	ps_ab_stkclear(stack);
-	return (0);
+	(*newstk).nbr = nbr;
+	(*newstk).idx = index;
+	(*newstk).next = (void *)0;
+	return (newstk);
 }
+

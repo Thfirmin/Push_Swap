@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_main.c                                          :+:      :+:    :+:   */
+/*   ps_stksize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
+/*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 21:33:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/13 13:35:34 by thfirmin         ###   ########.fr       */
+/*   Created: 2022/10/29 07:40:47 by thfirmin          #+#    #+#             */
+/*   Updated: 2022/10/29 07:42:00 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ps_stack.h"
 
-// Initialize and sort stack
-int	main(int argc, char *argv[])
+int	ps_stksize(t_stack *stack)
 {
-	t_stack **stack;
-
-	if (argc <= 1)
-		return (0);
-	stack = ps_init(argc, argv);
+	int i;
+	
+	i = 0;
 	if (!stack)
-		return (1);
-	push_swap(stack);
-	ps_ab_stkclear(stack);
-	return (0);
+		return (i);
+	while (stack)
+	{
+		stack = stack->next;
+		i ++;
+	}
+	return (i);
 }

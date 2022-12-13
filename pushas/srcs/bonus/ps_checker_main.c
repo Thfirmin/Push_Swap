@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 00:13:40 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/11 02:00:50 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:34:59 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 		ft_putendl_fd("OK", 1);
 	else
 		ft_putendl_fd("KO", 1);
-	ps_clear(stack);
+	ps_ab_stkclear(stack);
 	return (0);
 }
 
