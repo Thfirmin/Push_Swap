@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:31:20 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/13 18:11:56 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:12:48 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,28 +62,31 @@ static void	ps_sort_five(t_stack **stka, t_stack **stkb)
 
 static void	ps_chunks(t_stack **stka, t_stack **stkb, int len)
 {
-	int	interview;
+	int	chunk;
 	int	i;
 	int	min;
 	int	max;
 
-	interview = ((len * (10 / 100)) / 2 + 1);
+	
+	chunk = ((len * (10 / 100)) / 2 + 1);
 	min = (len / 2);
 	max = (len / 2);
 	while (*stka)
 	{
-		min -= interview;
-		max += interview;
+		min -= chunk;
+		max += chunk;
 		i = -1;
-		while (*stka && (++i < (interview * 2)))
+		while (*stka && (++i < (chunk * 2)))
 		{
 			picker(stka, min, max, 'a');
 			px(stka, stkb, 'b');
 		}
 	}
-	while (*stkb && (--len > -1))
+	/*while (*stkb && (--len > -1))
 	{
 		picker(stkb, len, len, 'b');
 		px(stkb, stka, 'a');
-	}
+	}*/
 }
+
+
