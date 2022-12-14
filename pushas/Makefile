@@ -6,7 +6,7 @@
 #    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 15:06:33 by thfirmin          #+#    #+#              #
-#    Updated: 2022/12/12 12:47:26 by thfirmin         ###   ########.fr        #
+#    Updated: 2022/12/14 18:53:17 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS_INIT	= ps_init.c \
 
 SRCS_MDTRY	= ps_main.c \
 			  push_swap.c \
+			  ps_chunks.c
 
 SRCS_BONUS	= ps_checker_main.c \
 			  ps_checker_utils.c

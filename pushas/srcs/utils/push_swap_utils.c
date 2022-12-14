@@ -6,13 +6,14 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:27:34 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/13 17:27:32 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/14 20:49:00 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 #include "ps_utils.h"
 #include "ps_operations.h"
+#include "libft.h"
 
 static int	picker_dwn(t_stack *stk, unsigned int min, unsigned int max);
 
@@ -56,11 +57,15 @@ void	picker(t_stack **stka, unsigned int min, unsigned int max, char stk)
 		return ;
 	dwn = picker_dwn(*stka, min, max);
 	if (up <= dwn)
+	{
 		while (!(((**stka).idx >= min) && ((**stka).idx <= max)))
 			rx(stka, 0, stk);
+	}
 	else
+	{
 		while (!(((**stka).idx >= min) && ((**stka).idx <= max)))
 			rrx(stka, 0, stk);
+	}
 }
 
 // Verify rated number from up-down, what rule to use and how many rules to use

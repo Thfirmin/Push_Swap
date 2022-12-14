@@ -6,12 +6,13 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:33:42 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/14 17:37:28 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/14 20:52:26 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// ra = 2618
 // Initialize and sort stack
 int	main(int argc, char *argv[])
 {
@@ -23,7 +24,7 @@ int	main(int argc, char *argv[])
 	if (!stack)
 		return (1);
 	push_swap(stack);
-	ps_check_stack(stack[A], stack[B]);
+	//ps_check_stack(stack[A], stack[B]);
 	ps_ab_stkclear(stack);
 	return (0);
 }

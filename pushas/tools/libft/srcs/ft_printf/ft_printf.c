@@ -6,7 +6,7 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 18:21:13 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/11 22:09:06 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:46:01 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 static int	ft_putformatted_fd(char mask, va_list *ap, int fd);
 
+// .
 // Implementation of printf of stdio library.
 int	ft_printf(const char *format, ...)
 {

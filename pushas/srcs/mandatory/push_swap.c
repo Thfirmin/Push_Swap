@@ -6,13 +6,11 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:31:20 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/12/14 17:12:48 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:49:11 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ps_chunks(t_stack **stka, t_stack **stkb, int len);
 
 static void	ps_sort_five(t_stack **stka, t_stack **stkb);
 
@@ -59,34 +57,4 @@ static void	ps_sort_five(t_stack **stka, t_stack **stkb)
 	while (*stkb)
 		px(stkb, stka, 'a');
 }
-
-static void	ps_chunks(t_stack **stka, t_stack **stkb, int len)
-{
-	int	chunk;
-	int	i;
-	int	min;
-	int	max;
-
-	
-	chunk = ((len * (10 / 100)) / 2 + 1);
-	min = (len / 2);
-	max = (len / 2);
-	while (*stka)
-	{
-		min -= chunk;
-		max += chunk;
-		i = -1;
-		while (*stka && (++i < (chunk * 2)))
-		{
-			picker(stka, min, max, 'a');
-			px(stka, stkb, 'b');
-		}
-	}
-	/*while (*stkb && (--len > -1))
-	{
-		picker(stkb, len, len, 'b');
-		px(stkb, stka, 'a');
-	}*/
-}
-
 
