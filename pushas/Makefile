@@ -18,43 +18,43 @@ BONUS	= checker
 
 LIBFT	= $(PTH_LIBFT)libft.a
 
-GNL		= $(PTH_GNL)get_next_line.a
+GNL	= $(PTH_GNL)get_next_line.a
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # +>                                    SOURCES 
 
 SRCS_STACK	= ps_stknew.c \
-			  ps_stkadd_front.c \
-			  ps_stkadd_back.c \
-			  ps_stksize.c \
-			  ps_stklast.c \
-			  ps_stkdelone.c \
-			  ps_stkclear.c
+		  ps_stkadd_front.c \
+		  ps_stkadd_back.c \
+		  ps_stksize.c \
+		  ps_stklast.c \
+		  ps_stkdelone.c \
+		  ps_stkclear.c
 
 SRCS_OPRTN	= ps_push.c \
-			  ps_rotate.c \
-			  ps_rrotate.c \
-			  ps_swap.c
+		  ps_rotate.c \
+		  ps_rrotate.c \
+		  ps_swap.c
 
 SRCS_UTILS	= ps_check_stack.c \
-			  ps_error.c \
-			  ps_stkstatus.c \
-			  ps_stkutils.c \
-			  push_swap_utils.c
+		  ps_error.c \
+		  ps_stkstatus.c \
+		  ps_stkutils.c \
+		  push_swap_utils.c
 
 SRCS_INIT	= ps_init.c \
-			  ps_init_utils.c
+		  ps_init_utils.c
 
 SRCS_MDTRY	= ps_main.c \
-			  push_swap.c \
-			  ps_chunks.c
+		  push_swap.c \
+		  ps_chunks.c
 
 SRCS_BONUS	= ps_checker_main.c \
-			  ps_checker_utils.c
+		  ps_checker_utils.c
 
 PKG_SRCS	= $(addprefix $(PTH_STACK),$(SRCS_STACK)) \
-			  $(addprefix $(PTH_OPRTN),$(SRCS_OPRTN)) \
-			  $(addprefix $(PTH_UTILS),$(SRCS_UTILS)) \
-			  $(addprefix $(PTH_INIT),$(SRCS_INIT)) \
+		  $(addprefix $(PTH_OPRTN),$(SRCS_OPRTN)) \
+		  $(addprefix $(PTH_UTILS),$(SRCS_UTILS)) \
+		  $(addprefix $(PTH_INIT),$(SRCS_INIT)) \
 
 MDTRY_SRCS	= $(addprefix srcs/mandatory/,$(SRCS_MDTRY))
 
@@ -92,7 +92,7 @@ MAKE	= make --no-print-directory -C
 # +>                                     CODES 
 
 BLANK			= \e[m
-RED				= \e[38;5;9m
+RED			= \e[38;5;9m
 YELLOW			= \e[38;5;11m
 GREEN			= \e[38;5;2m
 BLUE			= \e[38;5;6m
@@ -116,15 +116,15 @@ FULLER			= \e[7m
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $(<:.c=.o)
 
-all:		libft $(NAME)
+all: libft $(NAME)
 
 libft:
 	$(MAKE) $(PTH_LIBFT)
 
-$(NAME):	$(PKG_OBJS) $(MDTRY_OBJS) $(LIBFT)
+$(NAME): $(PKG_OBJS) $(MDTRY_OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(INCLUDE) $(MDTRY_OBJS) $(PKG_OBJS) $(LIBFT) -o $(NAME)
 
-bonus:	all gnl $(BONUS)
+bonus: all gnl $(BONUS)
 
 $(BONUS): INCLUDE+=$(BN_INCLUDE)
 
@@ -140,13 +140,13 @@ clean:
 	rm -rf $(BONUS_OBJS)
 	$(foreach libs,$(PTH_LIBFT) $(PTH_GNL),$(MAKE) $(libs) clean;)
 
-fclean:		clean
+fclean: clean
 	rm -rf $(NAME)
 	rm -rf $(BONUS)
 	$(foreach libs,$(PTH_LIBFT) $(PTH_GNL),$(MAKE) $(libs) fclean;)
 
-re:			fclean all
+re: fclean all
 
-.PHONY:		all clean fclean re libft bonus gnl
+.PHONY: all clean fclean re libft bonus gnl
 # <+-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-'-.-' #
 # vim: fdm=marker fmr=+>,<+ ts=4 sw=4 nofen noet:
