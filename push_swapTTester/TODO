@@ -1,0 +1,13 @@
+[] Test Makefile
+[] Test Norminette
+[] Test Input
+	[] Invalid input
+		[] Void string
+		[] Letter
+		[] Repetitive number
+		[] INT_MAX & INT_MIN
+		[] Argv
+		[] String
+		[] *Argv + String
+[] Test Leaking
+[] Test Checker
