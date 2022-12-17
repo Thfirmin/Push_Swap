@@ -22,7 +22,7 @@ void	ps_stkclear(t_stack **stack)
 	while (*stack)
 	{
 		nxt_node = (**stack).next;
-		ps_stkdelone(*stack);
+		free(*stack);
 		*stack = nxt_node;
 	}
 }

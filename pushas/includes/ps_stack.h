@@ -29,7 +29,6 @@ typedef struct s_stack
 
 t_stack	*ps_stknew(int number, int index);
 t_stack	*ps_stklast(t_stack *stack);
-void	ps_stkdelone(t_stack *node);
 void	ps_stkclear(t_stack **stack);
 void	ps_stkadd_back(t_stack **stack, t_stack *node);
 void	ps_stkadd_front(t_stack **stack, t_stack *node);

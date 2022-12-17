@@ -48,7 +48,7 @@ static int	ft_putformatted_fd(char mask, va_list *ap, int fd)
 		len += ft_putnbr_fd(va_arg(*ap, int), fd);
 	else if (mask == 'u')
 		len += ft_putunbr_fd(va_arg(*ap, unsigned int), fd);
-	else if ((mask == 'p') || (mask == 'x')|| (mask == 'X'))
+	else if ((mask == 'p') || (mask == 'x') || (mask == 'X'))
 		len += ft_puthex_fd(va_arg(*ap, long unsigned int), (mask - 'X'), fd);
 	else if (mask == 'c')
 		len += ft_putchar_fd(va_arg(*ap, int), fd);

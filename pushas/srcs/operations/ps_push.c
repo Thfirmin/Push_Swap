@@ -16,7 +16,7 @@
 // Move the first node of stk1 and put it in front of stk2
 void	px(t_stack **stk1, t_stack **stk2, char stk)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	if (!*stk1)
 		return ;

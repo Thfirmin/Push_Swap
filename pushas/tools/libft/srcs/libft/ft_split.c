@@ -42,7 +42,7 @@ char	**ft_split(const char *s, char c)
 		*(split + i) = ft_substr(s, start, len);
 		start += len;
 	}
-	*(split + words) = (void *)0; 
+	*(split + words) = (void *)0;
 	return (split);
 }
 

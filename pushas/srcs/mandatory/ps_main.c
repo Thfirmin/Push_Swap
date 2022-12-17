@@ -12,11 +12,10 @@
 
 #include "push_swap.h"
 
-// ra = 2618
 // Initialize and sort stack
 int	main(int argc, char *argv[])
 {
-	t_stack **stack;
+	t_stack	**stack;
 
 	if (argc <= 1)
 		return (0);
@@ -24,7 +23,6 @@ int	main(int argc, char *argv[])
 	if (!stack)
 		return (1);
 	push_swap(stack);
-	//ps_check_stack(stack[A], stack[B]);
 	ps_ab_stkclear(stack);
 	return (0);
 }

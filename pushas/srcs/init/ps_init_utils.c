@@ -40,6 +40,7 @@ int	ps_isalldigit(char *nbr)
 	return (1);
 }
 
+// Verify argument bigger or shorter than an int type variable
 int	ps_isint(char *nbr)
 {
 	long long int	n;
@@ -52,6 +53,7 @@ int	ps_isint(char *nbr)
 	return (1);
 }
 
+// Verify repetitive argument in list
 int	ps_isunique(t_stack *stack, char *nbr)
 {
 	int	num;

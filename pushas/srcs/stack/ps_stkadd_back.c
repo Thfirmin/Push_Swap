@@ -22,5 +22,4 @@ void	ps_stkadd_back(t_stack **stack, t_stack *node)
 		*stack = node;
 	else
 		(*lst_node).next = node;
-
 }

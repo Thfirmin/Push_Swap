@@ -27,7 +27,6 @@ SRCS_STACK =	ps_stknew.c \
 		ps_stkadd_back.c \
 		ps_stksize.c \
 		ps_stklast.c \
-		ps_stkdelone.c \
 		ps_stkclear.c
 
 SRCS_OPRTN =	ps_push.c \

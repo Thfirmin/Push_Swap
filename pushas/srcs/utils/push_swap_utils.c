@@ -13,12 +13,12 @@
 #include "ps_stack.h"
 #include "ps_utils.h"
 #include "ps_operations.h"
-#include "libft.h"
 
 static int	picker_dwn(t_stack *stk, unsigned int min, unsigned int max);
 
 static int	picker_up(t_stack *stk, unsigned int min, unsigned int max);
 
+// Take the shorter node and put to the top of stack
 void	take_shorter(t_stack **stack, char stk)
 {
 	unsigned int	shorter;
@@ -45,6 +45,7 @@ void	take_shorter(t_stack **stack, char stk)
 			rrx(stack, 0, stk);
 }
 
+// Take a rated node and put to the top of stack
 void	picker(t_stack **stka, unsigned int min, unsigned int max, char stk)
 {
 	int	up;
@@ -103,4 +104,3 @@ static int	picker_dwn(t_stack *stk, unsigned int min, unsigned int max)
 	}
 	return (i);
 }
-

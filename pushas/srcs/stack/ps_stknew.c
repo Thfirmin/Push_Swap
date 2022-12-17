@@ -25,4 +25,3 @@ t_stack	*ps_stknew(int number, int index)
 	(*node).next = (void *)0;
 	return (node);
 }
-

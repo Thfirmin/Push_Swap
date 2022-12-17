@@ -17,6 +17,6 @@
 # include "ps_init.h"
 # include "ps_utils.h"
 
-void	ps_stack_process(t_stack **stack);
+void	ps_stack_process(t_stack **stack, int step);
 
 #endif

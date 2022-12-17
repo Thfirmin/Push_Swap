@@ -15,6 +15,9 @@
 
 static int	ps_checked(t_stack **stack);
 
+// Main of checker algorithm
+// call stack initialization, send stack to process rules and check stack.
+// Printing steps: the last parameter of "ps_stack_processes": 1(on) / 0(off)
 int	main(int argc, char *argv[])
 {
 	t_stack	**stack;
@@ -22,7 +25,7 @@ int	main(int argc, char *argv[])
 	stack = ps_init(argc, argv);
 	if (!stack)
 		return (1);
-	ps_stack_process(stack);
+	ps_stack_process(stack, 1);
 	if (ps_checked(stack))
 		ft_putendl_fd("OK", 1);
 	else
@@ -31,6 +34,7 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
+// Check if stack is sorted
 static int	ps_checked(t_stack **stack)
 {
 	t_stack	*node;

@@ -20,5 +20,5 @@ int	ft_putendl_fd(char *s, int fd)
 	while (*s)
 		len += write(fd, s++, 1);
 	len += write(fd, "\n", 1);
-	return(len);
+	return (len);
 }

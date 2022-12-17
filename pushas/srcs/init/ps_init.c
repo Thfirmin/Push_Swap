@@ -20,7 +20,7 @@ static int	ps_isvalid(t_stack *stack, char *nbr);
 
 static int	ps_iterate_args(t_stack **stack, char **args);
 
-// Initialize a stack, iterate and desassembly arguments to analise them
+// Build stack. Desassembly arguments to validate and iterate in stack
 t_stack	**ps_init(int argc, char *argv[])
 {
 	t_stack				**stack;
@@ -29,10 +29,10 @@ t_stack	**ps_init(int argc, char *argv[])
 	char				**str;
 
 	i = 0;
-	stack = malloc(2 * sizeof(t_stack *));
+	stack = ft_calloc(2, sizeof(t_stack *));
 	if (!stack)
 		return (0);
-	while(++i < argc)
+	while (++i < argc)
 	{
 		str = ft_split(argv[i], ' ');
 		if (!str)
@@ -47,7 +47,7 @@ t_stack	**ps_init(int argc, char *argv[])
 	return (stack);
 }
 
-// Iterate Desassembled argument, validating and appending
+// Validate desassembled args, make a node and append in stack
 static int	ps_iterate_args(t_stack **stack, char **args)
 {
 	register int	i;
@@ -73,7 +73,7 @@ static int	ps_iterate_args(t_stack **stack, char **args)
 	return (0);
 }
 
-// Validate ascii-number passed
+// Validate gived ascii-number
 static int	ps_isvalid(t_stack *stack, char *nbr)
 {
 	if (!ps_isalldigit(nbr))
@@ -85,7 +85,7 @@ static int	ps_isvalid(t_stack *stack, char *nbr)
 	return (1);
 }
 
-// Comparing number from list and indexing her
+// Compare number from list and re-index list with indexed number
 static int	ps_indexing_node(t_stack *stack, int n)
 {
 	unsigned int	index;

@@ -14,6 +14,7 @@
 #include "ps_utils.h"
 #include "libft.h"
 
+// Verify if stack is sorted
 int	ps_issorted(t_stack *stack)
 {
 	if (!stack)
@@ -27,6 +28,7 @@ int	ps_issorted(t_stack *stack)
 	return (1);
 }
 
+// Verify if stack is semi-sorted (some ra/rra is enough to sort them)
 int	ps_isordered(t_stack *stack)
 {
 	unsigned int	min;
@@ -37,7 +39,7 @@ int	ps_isordered(t_stack *stack)
 	take_min_n_max(stack, &min, &max);
 	while (stack->next)
 	{
-		if (stack->idx < stack->next->idx)
+		if ((stack->idx + 1) == stack->next->idx)
 			stack = stack->next;
 		else if ((stack->idx == max) && (stack->next->idx == min))
 			stack = stack->next;

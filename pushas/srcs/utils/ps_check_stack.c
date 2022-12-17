@@ -13,6 +13,7 @@
 #include "ps_stack.h"
 #include "libft.h"
 
+// Debbug tree of contents of stacks A & B
 void	ps_check_stack(t_stack *stka, t_stack *stkb)
 {
 	ft_printf ("------------------------\n");

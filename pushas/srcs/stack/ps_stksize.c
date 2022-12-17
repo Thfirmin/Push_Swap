@@ -15,8 +15,8 @@
 // Iterate a list and give the size of that
 int	ps_stksize(t_stack *stack)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (stack)
 	{

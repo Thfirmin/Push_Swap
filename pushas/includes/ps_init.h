@@ -18,7 +18,7 @@
 # ifndef MIN
 #  define MIN -2147483648
 # endif
-#include "ps_stack.h"
+# include "ps_stack.h"
 
 t_stack	**ps_init(int argc, char *argv[]);
 void	ps_free_split(char **splitted);

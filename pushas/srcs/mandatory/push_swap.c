@@ -16,6 +16,7 @@ static void	ps_sort_five(t_stack **stka, t_stack **stkb);
 
 static void	ps_sort_three(t_stack **stka);
 
+// Sorting algorithm main function
 void	push_swap(t_stack **stack)
 {
 	int	len;
@@ -29,6 +30,7 @@ void	push_swap(t_stack **stack)
 		ps_chunks(&stack[A], &stack[B], len);
 }
 
+// Three numbers sorting algorithm
 static void	ps_sort_three(t_stack **stka)
 {
 	while (!ps_issorted(*stka))
@@ -42,14 +44,12 @@ static void	ps_sort_three(t_stack **stka)
 	}
 }
 
+// Five numbers sorting algorithm
 static void	ps_sort_five(t_stack **stka, t_stack **stkb)
 {
-	unsigned int	min;
-
 	while (!ps_issorted(*stka))
 	{
-		take_min_n_max(*stka, &min, 0);
-		picker(stka, min, min, 'a');
+		take_shorter(stka, 'a');
 		px(stka, stkb, 'b');
 		if (ps_stksize(*stka) == 3)
 			ps_sort_three(stka);
@@ -57,4 +57,3 @@ static void	ps_sort_five(t_stack **stka, t_stack **stkb)
 	while (*stkb)
 		px(stkb, stka, 'a');
 }
-
