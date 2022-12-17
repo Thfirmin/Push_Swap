@@ -6,21 +6,23 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 22:57:25 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/21 23:38:40 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/10 22:34:15 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
+// Erase a list
 void	ps_stkclear(t_stack **stack)
 {
-	t_stack	*next;
+	t_stack	*nxt_node;
+
 	if (!stack)
 		return ;
 	while (*stack)
 	{
-		next = (**stack).next;
-		ps_stkdelone(*stack);
-		*stack = next;
+		nxt_node = (**stack).next;
+		free(*stack);
+		*stack = nxt_node;
 	}
 }

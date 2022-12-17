@@ -6,22 +6,22 @@
 /*   By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 22:42:31 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/10/28 13:21:23 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/10 22:35:03 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
-t_stack	*ps_stknew(int nbr, int index)
+// Create a new node
+t_stack	*ps_stknew(int number, int index)
 {
-	t_stack	*newstk;
+	t_stack	*node;
 
-	newstk = malloc(sizeof(t_stack));
-	if (!newstk)
+	node = malloc(sizeof(t_stack));
+	if (!node)
 		return (0);
-	(*newstk).nbr = nbr;
-	(*newstk).idx = index;
-	(*newstk).next = (void *)0;
-	return (newstk);
+	(*node).nbr = number;
+	(*node).idx = index;
+	(*node).next = (void *)0;
+	return (node);
 }
-
