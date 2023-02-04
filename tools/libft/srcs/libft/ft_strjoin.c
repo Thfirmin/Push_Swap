@@ -21,9 +21,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	newstr = malloc((len + 1) * sizeof(char));
 	if (!newstr)
 		return ((void *)0);
-	while (*s1)
+	while (s1 && *s1)
 		*newstr++ = *s1++;
-	while (*s2)
+	while (s2 && *s2)
 		*newstr++ = *s2++;
 	*newstr = '\0';
 	return (newstr - len);

@@ -11,12 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 // Initialize and sort stack
 int	main(int argc, char *argv[])
 {
 	t_stack	**stack;
 
+	printf("Argc = %i", argc - 1);
+	for (int i = 1; i < argc; i ++)
+		printf ("argv[%i] = %s\n", i, argv[i]);
 	if (argc <= 1)
 		return (0);
 	stack = ps_init(argc, argv);

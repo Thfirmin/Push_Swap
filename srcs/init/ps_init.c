@@ -68,7 +68,10 @@ static int	ps_iterate_args(t_stack **stack, char **args)
 			ps_stkadd_back(&stack[A], node);
 		}
 		else
+		{
+			ft_printf("error cause\n");
 			return (2);
+		}
 	}
 	return (0);
 }

@@ -18,8 +18,10 @@ char	*ft_strchr(const char *s, int c)
 {
 	int	count;
 
+	if (!s)
+		return (0);
 	count = 0;
-	while (s[count] != '\0')
+	while (s[count])
 	{
 		if (s[count] == (char) c)
 			return ((char *) s + count);
